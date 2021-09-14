@@ -1,3 +1,5 @@
+import NavItem from "./nav_item";
+
 export const examples = [];
 
 export const navLinks = [
@@ -15,7 +17,7 @@ export const navLinks = [
     path: "/blog",
   },
   {
-    name: "Contact Us",
+    name: <NavItem item="Contact Us" />,
     path: "#contact",
   },
 ];
