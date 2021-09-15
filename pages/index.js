@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 const HomeWrapper = styled.section`
   padding: var(--desktop-pad);
+  padding-top: 70px;
 
   .section-title {
     color: var(--primary);

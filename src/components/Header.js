@@ -11,6 +11,9 @@ const Navbar = styled.header`
   display: flex;
   justify-content: space-between;
   padding: var(--desktop-pad);
+  position: fixed;
+  z-index: 2;
+  top: 0;
 
   .brand h3 {
     padding-top: 10px;
