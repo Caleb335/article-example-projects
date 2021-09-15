@@ -1,0 +1,7 @@
+:root {
+  --primary: #3c1742;
+
+  /* paddings and white-spaces */
+  --desktop-pad: 0 150px 0 150px;
+  --mobile-pad: 0 20px 0 20px;
+}
