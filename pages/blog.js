@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../src/components/Header";
 import styled from "styled-components";
+import Head from "next/head";
 
 const Wrapper = styled.section`
   padding: var(--desktop-pad);
@@ -13,6 +14,9 @@ const Wrapper = styled.section`
 export default function BlogPage() {
   return (
     <React.Fragment>
+      <Head>
+        <title>Our Blog</title>
+      </Head>
       <Header />
       <Wrapper>
         <h1>Blog Page</h1>
