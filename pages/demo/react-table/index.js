@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { COLUMNS } from "./columns";
 import tableData from "./data.json";
 import Table from "./Table";
+import Head from "next/head";
 
 const TableWrapper = styled.section`
   padding: 0 150px 0 150px;
@@ -49,15 +50,20 @@ const TableWrapper = styled.section`
 
 const UserTable = () => {
   return (
-    <TableWrapper>
-      <h1>Users Table</h1>
-      <div className="table-container">
-        <Table
-          columns={React.useMemo(() => COLUMNS)}
-          data={React.useMemo(() => tableData)}
-        />
-      </div>
-    </TableWrapper>
+    <React.Fragment>
+      <Head>
+        <title>React table demo</title>
+      </Head>
+      <TableWrapper>
+        <h1>Users Table</h1>
+        <div className="table-container">
+          <Table
+            columns={React.useMemo(() => COLUMNS)}
+            data={React.useMemo(() => tableData)}
+          />
+        </div>
+      </TableWrapper>
+    </React.Fragment>
   );
 };
 
