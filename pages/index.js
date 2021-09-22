@@ -26,7 +26,7 @@ const DemoWrapper = styled.section`
     height: 200px;
     border-radius: 6px;
     border: 1px solid #73e2a7;
-    margin: 0 0 0 30px;
+    margin: 0 0 0 10px;
     padding: 10px 15px 10px 15px;
     color: #2e294e;
   }
