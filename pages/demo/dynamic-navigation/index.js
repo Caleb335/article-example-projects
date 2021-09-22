@@ -1,14 +1,14 @@
 import React from "react";
 import Head from "next/head";
-import UserTable from "../../../src/container/table";
+import DynamicNavDemo from "../../../src/container/next-nav";
 
 export default function ReactTableDemo() {
   return (
     <React.Fragment>
       <Head>
-        <title>Table Demo</title>
+        <title>DynamicNav Demo</title>
       </Head>
-      <UserTable />
+      <DynamicNavDemo />
     </React.Fragment>
   );
 }

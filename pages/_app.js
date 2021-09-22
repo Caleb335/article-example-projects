@@ -3,15 +3,12 @@ import "../styles/variables.css";
 import Head from "next/head";
 import React from "react";
 
-import { useRouter } from "next/router";
-
 function MyApp({ Component, pageProps }) {
-  const router = useRouter();
-
   return (
     <React.Fragment>
       <Head>
-        <meta name="theme-color" content="#3c1742" />
+        <meta name="theme-color" content="#73e2a7" />
+        <link rel="icon" type="image/ico" href="/img/goals.ico" />
       </Head>
       <Component {...pageProps} />
     </React.Fragment>

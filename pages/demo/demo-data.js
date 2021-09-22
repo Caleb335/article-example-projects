@@ -12,7 +12,7 @@ export const demos = [
   },
   {
     name: "Dynamic Navigation",
-    path: "/",
+    path: "/demo/dynamic-navigation",
     breif:
       "example project built to explain the concept of dynamic navigation in nextjs",
   },
