@@ -4,7 +4,7 @@ import Link from "next/link";
 import { demos } from "./demo-data";
 
 const DemoWrapper = styled.section`
-  padding: 0 150px 0 150px;
+  padding: 0 80px 0 80px;
 
   h1 {
     text-align: center;
@@ -13,11 +13,32 @@ const DemoWrapper = styled.section`
   .demos-container {
     width: 100%;
     height: 100%;
-    border: 1px solid red;
     padding: 30px 0 30px 0;
+    display: flex;
+    // justify-content: space-around;
   }
 
   .demo {
+    width: 380px;
+    height: 200px;
+    border-radius: 6px;
+    border: 1px solid #73e2a7;
+    margin: 0 0 0 30px;
+    padding: 10px 15px 10px 15px;
+    color: #2e294e;
+  }
+
+  .demo:hover {
+    cursor: pointer;
+  }
+
+  .demo-name {
+    font-size: 20px;
+    font-weight: 400;
+  }
+
+  .demo-brief {
+    height: 65px;
   }
 `;
 
