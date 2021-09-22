@@ -17,6 +17,10 @@ export const navLinks = [
     path: "/blog",
   },
   {
+    name: "Demos",
+    path: "/demo",
+  },
+  {
     name: <NavItem item="Contact Us" />,
     path: "#contact",
   },
