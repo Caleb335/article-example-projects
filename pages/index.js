@@ -24,7 +24,7 @@ const DemoWrapper = styled.section`
   .demo {
     width: 380px;
     height: 200px;
-    border-radius: 6px;
+    border-radius: 10px;
     border: 1px solid #73e2a7;
     margin: 0 0 0 10px;
     padding: 10px 15px 10px 15px;
@@ -33,6 +33,9 @@ const DemoWrapper = styled.section`
 
   .demo:hover {
     cursor: pointer;
+    transform: scale(1.03);
+    box-shadow: 1px 3px 1px #73e2a7;
+    transition: all ease-in 0.3s;
   }
 
   .demo-name {
