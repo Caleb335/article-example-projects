@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Link from "next/link";
-import { demos } from "./demo/demo-data";
+import { demos } from "../src/utils/demo-data";
 import Head from "next/head";
 
 const DemoWrapper = styled.section`
