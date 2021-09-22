@@ -18,7 +18,7 @@ export const navLinks = [
   },
   {
     name: "Demos",
-    path: "/demo",
+    path: "/",
   },
   {
     name: <NavItem item="Contact Us" />,

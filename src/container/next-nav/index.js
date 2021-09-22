@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Header from "../../components/Header";
 import styled from "styled-components";
+import Link from "next/link";
 
 const HomeWrapper = styled.section`
   padding: var(--desktop-pad);
@@ -10,6 +11,10 @@ const HomeWrapper = styled.section`
     color: var(--primary);
     text-decoration: underline;
     text-transform: capitalize;
+  }
+
+  h1:hover {
+    cursor: pointer;
   }
 
   .section-body {
@@ -37,7 +42,9 @@ export default function DynamicNavDemo() {
       </Head>
       <Header />
       <HomeWrapper>
-        <h1>Home Page</h1>
+        <Link href="/">
+          <h1>Demo Page</h1>
+        </Link>
         <section>
           <h3 className="section-title">New section</h3>
           <p className="section-body">

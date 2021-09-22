@@ -8,12 +8,12 @@ export const demos = [
   {
     name: "Kelvin Data API",
     path: "/demo/kelvin-data",
-    breif: "example project built to explain the kelvin data product",
+    breif: "Example project built to explain the kelvin data product",
   },
   {
     name: "Dynamic Navigation",
     path: "/demo/dynamic-navigation",
     breif:
-      "example project built to explain the concept of dynamic navigation in nextjs",
+      "Example project built to explain the concept of dynamic navigation in nextjs",
   },
 ];
