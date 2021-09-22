@@ -65,7 +65,7 @@ export default function Header() {
         {navLinks.map((link, index) => {
           return (
             <ul>
-              <Link href={link.path}>
+              <Link href={link.path} passHref>
                 <li key={index}>{link.name}</li>
               </Link>
             </ul>
