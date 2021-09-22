@@ -9,7 +9,7 @@ const DemoWrapper = styled.section`
 
   h1 {
     text-align: center;
-    color: #73e2a7;
+    color: var(--primary-demo);
   }
 
   .demos-container {
@@ -25,7 +25,7 @@ const DemoWrapper = styled.section`
     width: 380px;
     height: 200px;
     border-radius: 10px;
-    border: 1px solid #73e2a7;
+    border: 1px solid var(--primary-demo);
     margin: 0 0 0 10px;
     padding: 10px 15px 10px 15px;
     color: #2e294e;
@@ -34,7 +34,7 @@ const DemoWrapper = styled.section`
   .demo:hover {
     cursor: pointer;
     transform: scale(1.03);
-    box-shadow: 1px 3px 1px #73e2a7;
+    box-shadow: 1px 3px 1px var(--primary-demo);
     transition: all ease-in 0.3s;
   }
 

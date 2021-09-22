@@ -13,7 +13,7 @@ export const navLinks = [
   },
   {
     name: "Services",
-    path: "../container/next-nav/services",
+    path: "/services",
   },
   {
     name: "Blog",
