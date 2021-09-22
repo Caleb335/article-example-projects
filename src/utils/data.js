@@ -3,7 +3,10 @@ import NavItem from "./nav_item";
 export const examples = [];
 
 export const navLinks = [
-  { name: "Home", path: "/" },
+  {
+    name: "Home",
+    path: "/",
+  },
   {
     name: "About Us",
     path: "/about",
