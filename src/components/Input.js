@@ -2,13 +2,14 @@ import React from "react";
 import propTypes from "prop-types";
 import styled from "styled-components";
 
-const SearchBox = styled.input`
-  width: 500px;
+const InputBox = styled.input`
+  width: 100%;
   height: 45px;
   border-radius: 5px;
   background: 1px solid ghostwhite;
   border: 1px solid var(--primary-demo);
   padding: 0 10px;
+  outline: none;
 
   ::placeholder {
     color: grey;
@@ -16,22 +17,24 @@ const SearchBox = styled.input`
   }
 `;
 
-const Search = ({ type, placeholder, onChange, ...props }) => {
+const Input = ({ type, name, placeholder, onChange, ...props }) => {
   return (
-    <SearchBox
+    <InputBox
       type={type}
-      name="search"
+      name={name}
       placeholder={placeholder}
       onChange={onChange}
       {...props}
+      required
     />
   );
 };
 
-export default Search;
+export default Input;
 
-Search.propTypes = {
+Input.propTypes = {
   type: propTypes.string.isRequired,
   placeholder: propTypes.string.isRequired,
   onChange: propTypes.func.isRequired,
+  name: propTypes.string.isRequired,
 };
