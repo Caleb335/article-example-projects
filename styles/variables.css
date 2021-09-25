@@ -1,6 +1,7 @@
 :root {
   --primary: #3c1742;
   --primary-demo: #73e2a7;
+  --danger: #ff5c5c;
 
   /* paddings and white-spaces */
   --desktop-pad: 0 150px 0 150px;
