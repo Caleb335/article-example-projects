@@ -143,7 +143,12 @@ const UserAPIComponent = () => {
   const getuserData = () => {
     fetch(
       `https://api.kelvindata.com/rest/v1/search-v2?lastName=${lastName}&firstName=${firstName}&apiKey=${process.env.NEXT_PUBLIC_DATA_KEY}`,
-      queryOptions.headers
+      {
+        headers: {
+          Accept: "application/json",
+          "Access-Control-Allow-Origin": "*",
+        },
+      }
     )
       .then((response) => response.json())
       .then((response) => {
