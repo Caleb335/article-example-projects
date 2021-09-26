@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Input from "../../components/Input";
 import { queryOptions } from "../../utils/options";
+import axios from "axios";
 import { FiUser } from "react-icons/fi";
 import { HiMail } from "react-icons/hi";
 
@@ -141,19 +142,20 @@ const UserAPIComponent = () => {
   const [lastName, setLastName] = React.useState("");
 
   const getuserData = () => {
-    fetch(
-      `https://api.kelvindata.com/rest/v1/search-v2?lastName=${lastName}&firstName=${firstName}&apiKey=${process.env.NEXT_PUBLIC_DATA_KEY}`,
-      {
-        headers: {
-          Accept: "application/json",
-          "Access-Control-Allow-Origin": "*",
-        },
-      }
-    )
-      .then((response) => response.json())
+    axios
+      .get(
+        `https://api.kelvindata.com/rest/v1/search-v2?lastName=${lastName}&firstName=${firstName}&apiKey=${process.env.NEXT_PUBLIC_DATA_KEY}`,
+        {
+          headers: {
+            Accept: "application/json",
+            "Access-Control-Allow-Origin": "*",
+          },
+        }
+      )
+      .then((response) => response)
       .then((response) => {
-        setUserData(response);
-        console.log(response);
+        setUserData(response.data);
+        console.log(response.data);
       })
       .catch((err) => console.log(err));
   };
