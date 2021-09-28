@@ -137,25 +137,21 @@ const Button = styled.button`
 `;
 
 const UserAPIComponent = () => {
-  const [userData, setUserData] = React.useState([]);
+  const [userData, setUserData] = React.useState({ data: [] });
   const [firstName, setFirstName] = React.useState("");
   const [lastName, setLastName] = React.useState("");
 
   const getuserData = () => {
     axios
-      .get(
-        `https://api.kelvindata.com/rest/v1/search-v2?lastName=${lastName}&firstName=${firstName}&apiKey=${process.env.NEXT_PUBLIC_DATA_KEY}`,
-        {
-          headers: {
-            Accept: "application/json",
-            "Access-Control-Allow-Origin": "*",
-          },
-        }
-      )
+      .get(`/api/users/?lastName=${lastName}&firstName=${firstName}`, {
+        headers: {
+          Accept: "application/json",
+          "Access-Control-Allow-Origin": "*",
+        },
+      })
       .then((response) => response)
       .then((response) => {
         setUserData(response.data);
-        console.log(response.data);
       })
       .catch((err) => console.log(err));
   };
@@ -197,41 +193,37 @@ const UserAPIComponent = () => {
         </div>
       </form>
       <div className="results-container">
-        {!userData & userData
-          ? "loading..."
-          : userData.map((users, index) => {
-              return (
-                <div className="users-card" key={index}>
-                  <p>
-                    <span>
-                      <FiUser />
-                    </span>{" "}
-                    {users.name.full}
-                  </p>
-                  <p>
-                    <span>
-                      <HiMail />
-                    </span>
-                    {users.emailAddresses[0]
-                      ? users.emailAddresses[0]
-                      : "no data"}
-                  </p>
-                  <p>Title: {users.employments[0].title}</p>
-                  <p>
-                    Seniority:{" "}
-                    {users.employments[0].seniority
-                      ? users.employments[0].seniority
-                      : "no data"}
-                  </p>
-                  <p>
-                    Organization:{" "}
-                    {users.employments[0].organization.name
-                      ? users.employments[0].organization.name
-                      : "no data"}
-                  </p>
-                </div>
-              );
-            })}
+        {userData.data.map((users, index) => {
+          return (
+            <div className="users-card" key={index}>
+              <p>
+                <span>
+                  <FiUser />
+                </span>{" "}
+                {users.name.full}
+              </p>
+              <p>
+                <span>
+                  <HiMail />
+                </span>
+                {users.emailAddresses[0] ? users.emailAddresses[0] : "no data"}
+              </p>
+              <p>Title: {users.employments[0].title}</p>
+              <p>
+                Seniority:{" "}
+                {users.employments[0].seniority
+                  ? users.employments[0].seniority
+                  : "no data"}
+              </p>
+              <p>
+                Organization:{" "}
+                {users.employments[0].organization.name
+                  ? users.employments[0].organization.name
+                  : "no data"}
+              </p>
+            </div>
+          );
+        })}
       </div>
     </Wrapper>
   );
