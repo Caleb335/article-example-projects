@@ -1,10 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import Input from "../../components/Input";
-import { queryOptions } from "../../utils/options";
 import axios from "axios";
-import { FiUser } from "react-icons/fi";
-import { HiMail } from "react-icons/hi";
+import { queryOptions } from "../../utils/options";
 
 const Wrapper = styled.section`
   padding: 0 100px 0 100px;
@@ -137,13 +135,13 @@ const Button = styled.button`
 `;
 
 const UserAPIComponent = () => {
-  const [userData, setUserData] = React.useState({ data: [] });
-  const [firstName, setFirstName] = React.useState("");
-  const [lastName, setLastName] = React.useState("");
+  const [userData, setUserData] = React.useState([]);
+  const [firstName, setFirstName] = React.useState(queryOptions.first);
+  const [lastName, setLastName] = React.useState(queryOptions.last);
 
   const getuserData = () => {
     axios
-      .get(`/api/users/?lastName=${lastName}&firstName=${firstName}`, {
+      .get(`/api/users/?firstName=${firstName}&lastName=${lastName}`, {
         headers: {
           Accept: "application/json",
           "Access-Control-Allow-Origin": "*",
@@ -152,8 +150,10 @@ const UserAPIComponent = () => {
       .then((response) => response)
       .then((response) => {
         setUserData(response.data);
+        console.log(response.data);
       })
       .catch((err) => console.log(err));
+    console.log(firstName);
   };
 
   const handleSubmit = (e) => {
@@ -192,39 +192,7 @@ const UserAPIComponent = () => {
           <Button>Search</Button>
         </div>
       </form>
-      <div className="results-container">
-        {userData.data.map((users, index) => {
-          return (
-            <div className="users-card" key={index}>
-              <p>
-                <span>
-                  <FiUser />
-                </span>{" "}
-                {users.name.full}
-              </p>
-              <p>
-                <span>
-                  <HiMail />
-                </span>
-                {users.emailAddresses[0] ? users.emailAddresses[0] : "no data"}
-              </p>
-              <p>Title: {users.employments[0].title}</p>
-              <p>
-                Seniority:{" "}
-                {users.employments[0].seniority
-                  ? users.employments[0].seniority
-                  : "no data"}
-              </p>
-              <p>
-                Organization:{" "}
-                {users.employments[0].organization.name
-                  ? users.employments[0].organization.name
-                  : "no data"}
-              </p>
-            </div>
-          );
-        })}
-      </div>
+      <div className="results-container">results go here</div>
     </Wrapper>
   );
 };

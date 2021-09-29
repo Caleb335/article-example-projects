@@ -1,3 +1,4 @@
-// export const queryOptions = {
-
-// };
+export const queryOptions = {
+  first: "",
+  last: "",
+};
