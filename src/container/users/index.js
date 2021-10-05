@@ -135,13 +135,13 @@ const Button = styled.button`
 `;
 
 const UserAPIComponent = () => {
-  const [userData, setUserData] = React.useState([]);
-  const [firstName, setFirstName] = React.useState(queryOptions.first);
-  const [lastName, setLastName] = React.useState(queryOptions.last);
+  const [userData, setUserData] = React.useState("");
+  const [firstName, setFirstName] = React.useState("");
+  const [lastName, setLastName] = React.useState("");
 
-  const getuserData = () => {
+  const getuserData = async () => {
     axios
-      .get(`/api/users/?firstName=${firstName}&lastName=${lastName}`, {
+      .get(`/api/users?firstName=${firstName}&lastName=${lastName}`, {
         headers: {
           Accept: "application/json",
           "Access-Control-Allow-Origin": "*",
@@ -149,16 +149,14 @@ const UserAPIComponent = () => {
       })
       .then((response) => response)
       .then((response) => {
-        setUserData(response.data);
-        console.log(response.data);
+        setUserData(response);
+        console.log(response);
       })
       .catch((err) => console.log(err));
-    console.log(firstName);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     getuserData();
   };
 
