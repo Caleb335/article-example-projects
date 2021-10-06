@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Input from "../../components/Input";
 import axios from "axios";
-import { queryOptions } from "../../utils/options";
+import Card from "../../components/Card";
 
 const Wrapper = styled.section`
   padding: 0 100px 0 100px;
@@ -47,26 +47,6 @@ const Wrapper = styled.section`
     flex-wrap: wrap;
     padding: 20px 0;
     margin-top: 20px;
-  }
-
-  .users-card {
-    height: 56%;
-    width: 32%;
-    margin: 0 15px 30px 0;
-    background: #fff;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.05);
-    border-radius: 8px;
-    padding: 0 15px 0 15px;
-  }
-
-  .users-card p {
-    text-transform: capitalize;
-  }
-
-  .users-card p span svg {
-    font-size: 20px;
-    margin: 0 10px 0 0;
-    color: var(--danger);
   }
 
   .results-container::-webkit-scrollbar {
@@ -135,7 +115,7 @@ const Button = styled.button`
 `;
 
 const UserAPIComponent = () => {
-  const [userData, setUserData] = React.useState("");
+  const [userData, setUserData] = React.useState([]);
   const [firstName, setFirstName] = React.useState("");
   const [lastName, setLastName] = React.useState("");
 
@@ -149,8 +129,9 @@ const UserAPIComponent = () => {
       })
       .then((response) => response)
       .then((response) => {
-        setUserData(response);
-        console.log(response);
+        response.data.length === 0
+          ? console.log("no data found")
+          : setUserData(response.data);
       })
       .catch((err) => console.log(err));
   };
@@ -190,7 +171,9 @@ const UserAPIComponent = () => {
           <Button>Search</Button>
         </div>
       </form>
-      <div className="results-container">results go here</div>
+      <div className="results-container">
+        <Card data={userData} />
+      </div>
     </Wrapper>
   );
 };
