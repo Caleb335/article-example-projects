@@ -1,5 +1,4 @@
 import React from "react";
-import propTypes from "react";
 import { FiUser } from "react-icons/fi";
 import { HiMail } from "react-icons/hi";
 import styled from "styled-components";
@@ -22,40 +21,50 @@ const Wrapper = styled.div`
     margin: 0 10px 0 0;
     color: var(--danger);
   }
+
+  @media only screen and (max-width: 576px) {
+    width: 100%;
+  }
+
+  @media only screen and (min-width: 576px) and (max-width: 768px) {
+    width: 47%;
+  }
 `;
 
-const Card = ({ data: [] }) => {
+const Card = ({ result }) => {
   return (
     <>
-      {data.map((users, index) => {
+      {result.map((users, index) => {
         return (
-          <div className="users-card" key={index}>
+          <Wrapper className="users-card" key={index}>
             <p>
               <span>
                 <FiUser />
               </span>{" "}
-              {users.name.full}
+              {users.name.full !== null ? users.name.full : "no name data"}
             </p>
             <p>
               <span>
                 <HiMail />
               </span>
-              {users.emailAddresses[0] ? users.emailAddresses[0] : "no data"}
+              {users.emailAddresses[0] !== null
+                ? users.emailAddresses[0]
+                : "no data"}
             </p>
             <p>Title: {users.employments[0].title}</p>
             <p>
               Seniority:{" "}
-              {users.employments[0].seniority
+              {users.employments[0].seniority !== null
                 ? users.employments[0].seniority
-                : "no data"}
+                : "no seniority info"}
             </p>
             <p>
               Organization:{" "}
-              {users.employments[0].organization.name
+              {users.employments[0].organization.name !== null
                 ? users.employments[0].organization.name
-                : "no data"}
+                : "no employment info"}
             </p>
-          </div>
+          </Wrapper>
         );
       })}
     </>
@@ -63,7 +72,3 @@ const Card = ({ data: [] }) => {
 };
 
 export default Card;
-
-Card.propTypes = {
-  data: propTypes.array,
-};

@@ -129,9 +129,7 @@ const UserAPIComponent = () => {
       })
       .then((response) => response)
       .then((response) => {
-        response.data.length === 0
-          ? console.log("no data found")
-          : setUserData(response.data);
+        setUserData(response.data.data);
       })
       .catch((err) => console.log(err));
   };
@@ -172,7 +170,7 @@ const UserAPIComponent = () => {
         </div>
       </form>
       <div className="results-container">
-        <Card data={userData} />
+        {userData ? <Card result={userData} /> : "loading..."}
       </div>
     </Wrapper>
   );
