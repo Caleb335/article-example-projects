@@ -16,4 +16,10 @@ export const demos = [
     breif:
       "Example project built to explain the concept of dynamic navigation in nextjs",
   },
+  {
+    name: "React Preloader",
+    path: "/demo/preloader",
+    breif:
+      "Example project built to explain the concept of preloaders in React",
+  },
 ];
