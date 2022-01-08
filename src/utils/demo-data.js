@@ -22,4 +22,10 @@ export const demos = [
     breif:
       "Example project built to explain the concept of preloaders in React",
   },
+  {
+    name: "React Dropdown Select",
+    path: "/demo/dropdown",
+    breif:
+      "Example project built to explain how to react-dropdown-select's default value from array to string",
+  },
 ];
