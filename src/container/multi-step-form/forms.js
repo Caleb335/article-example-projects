@@ -2,7 +2,6 @@ import React from "react";
 import propTypes from "prop-types";
 import { MainFormWrapper } from "./style/form.styled";
 import { Fade } from "react-awesome-reveal";
-import { MdOutlineDoneAll } from "react-icons/md";
 
 const MainForm = () => {
   const [formStep, setFormStep] = React.useState(0);
@@ -149,7 +148,12 @@ export const SecondForm = ({
   );
 };
 
-SecondForm.propTypes = {};
+SecondForm.propTypes = {
+  emailAddress: propTypes.string.isRequired,
+  emailChange: propTypes.func.isRequired,
+  address: propTypes.string.isRequired,
+  addressChange: propTypes.func.isRequired,
+};
 
 export const ThirdForm = ({ phoneNumber, phoneChange }) => {
   return (
@@ -170,5 +174,6 @@ export const ThirdForm = ({ phoneNumber, phoneChange }) => {
 };
 
 ThirdForm.propTypes = {
-  //
+  phoneNumber: propTypes.string.isRequired,
+  phoneChange: propTypes.func.isRequired,
 };
