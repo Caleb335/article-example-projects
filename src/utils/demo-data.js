@@ -28,4 +28,10 @@ export const demos = [
     breif:
       "Example project built to explain how to react-dropdown-select's default value from array to string",
   },
+  {
+    name: "Multi-Step form in React",
+    path: "/demo/multi-step-form",
+    breif:
+      "Example project built to explain how to illustrate state management in a multi-step-form",
+  },
 ];
