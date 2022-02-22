@@ -104,7 +104,7 @@ const MainForm = () => {
           ""
         ) : (
           <button className="btn" name="button" onClick={nextForm}>
-            Next Step
+            {formStep === 2 ? "Finish" : "Next Step"}
           </button>
         )}
       </form>
