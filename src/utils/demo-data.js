@@ -34,4 +34,10 @@ export const demos = [
     breif:
       "Example project built to explain how to illustrate state management in a multi-step-form",
   },
+  {
+    name: "React Video",
+    path: "/demo/video",
+    breif:
+      "Example project that will kinda help me to understand the inner-workings of the remotion framework.",
+  },
 ];
